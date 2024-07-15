@@ -18,7 +18,7 @@ export default {
 				'black': '#1E1C1E',
 			},
 			gridTemplateColumns: {
-				'50/50': '49% 49%',
+				'50/50': '50% 50%',
 			}
 		},
   },
