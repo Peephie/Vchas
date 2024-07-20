@@ -4,7 +4,9 @@ import MainHero from './MainHero'
 const MainScreen = () => {
 	return (
 		<div className='bg-gradient-to-r from-beige from-50% to-cherry to-50%'>
-			<Navbar/>
+			<div className='mb-48'>
+				<Navbar/>
+			</div>
 			<div className='grid grid-cols-50/50'>
 				<MainHero 
 					heading='Випадкове Слово'
@@ -12,7 +14,7 @@ const MainScreen = () => {
 					primaryColor='beige'
 					brandColor='cherry'
 					linkValue='#'
-					bgImage='../images/ink-image.png'
+					bgImage='ink-image'
 				/>
 				<MainHero 
 					heading='Переглянути Всі Слова'
@@ -20,7 +22,7 @@ const MainScreen = () => {
 					primaryColor='cherry'
 					brandColor='beige'
 					linkValue='#'
-					bgImage='../images/paper-image.png'
+					bgImage='paper-image'
 				/>
 			</div>
 		</div>
