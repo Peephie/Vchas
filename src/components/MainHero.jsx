@@ -13,12 +13,12 @@ const MainHero = ({
 	return (
 		<div className={`bg-${primaryColor}`}>
 			<h1 
-				className={`font-bold text-${brandColor} mb-3 uppercase text-center text-3xl`} 
+				className={`text-${brandColor} mb-3 uppercase text-center text-3xl font-raleway font-semibold`} 
 				href={linkValue}
 			>
 				{heading}
 			</h1>
-			<h2 className={`font-light italic text-${brandColor} mb-9 text-center text-xl`}>
+			<h2 className={`text-${brandColor} mb-9 text-center text-xl font-raleway-italic font-light`}>
 				{subheading}
 			</h2>
 			<img
