@@ -2,6 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Raleway font */
+@font-face {
+	font-family: 'Raleway';
+	src: url('/src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Raleway-Italic';
+	src: url('/src/assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+/* CormorantInfant font */
+@font-face {
+	font-family: 'CormorantInfant-Bold';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-BoldItalic';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-Italic';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-Italic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-Light';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-LightItalic';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-LightItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-Medium';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-MediumItalic';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-Regular';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-SemiBold';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CormorantInfant-SemiBoldItalic';
+	src: url('/src/assets/fonts/Cormorant_Infant/CormorantInfant-SemiBoldItalic.ttf') format('truetype');
+}
+
+/* Snell Roundhand font */
+@font-face {
+	font-family: 'SnellBT-Bold';
+	src: url('/src/assets/fonts/Snell_Roundhand/SnellBT-Bold.otf') format('opentype');
+}
+@font-face {
+	font-family: 'SnellBT-Regular';
+	src: url('/src/assets/fonts/Snell_Roundhand/SnellBT-Regular.otf') format('opentype');
+}
+
 #root {
 	margin: 0;
 	padding: 0;
