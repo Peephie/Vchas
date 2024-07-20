@@ -1,0 +1,28 @@
+{
+	"cards" : [
+		{
+			"id" : 1,
+			"primaryWord" : "Бесіда",
+			"relatedWord" : "Чат",
+			"description" : "місце, де ведеться розмова."
+		},
+		{
+			"id" : 2,
+			"primaryWord" : "Бузувір",
+			"relatedWord" : "Фанатик",
+			"description" : "місце, де ведеться розмова."
+		},
+		{
+			"id" : 3,
+			"primaryWord" : "Виклик",
+			"relatedWord" : "Челендж",
+			"description" : "місце, де ведеться розмова."
+		},
+		{
+			"id" : 4,
+			"primaryWord" : "Відступ",
+			"relatedWord" : "Абзац",
+			"description" : "місце, де ведеться розмова."
+		}
+	]
+}
