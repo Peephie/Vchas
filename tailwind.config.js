@@ -37,5 +37,18 @@ export default {
 			}
 		},
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents, theme }) {
+      addComponents({
+        '.variant-base': {
+          backgroundColor: theme('colors.beige'),
+          color: theme('colors.cherry'),
+        },
+        '.variant-inverse': {
+          backgroundColor: theme('colors.cherry'),
+          color: theme('colors.beige'),
+        },
+      });
+    },
+  ],
 }
