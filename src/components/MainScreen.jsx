@@ -1,12 +1,9 @@
-import Navbar from './Navbar'
+import NavBar from './NavBar'
 import MainHero from './MainHero'
 
 const MainScreen = () => {
 	return (
 		<div className='bg-gradient-to-r from-beige from-50% to-cherry to-50%'>
-			<div className='mb-48'>
-				<Navbar/>
-			</div>
 			<div className='grid grid-cols-50/50'>
 				<MainHero 
 					heading='Випадкове Слово'
