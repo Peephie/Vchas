@@ -1,14 +1,14 @@
 import React, { useEffect, useContext } from 'react'
-import { NavBarContext } from '../contexts/NavBarContext';
+import { ThemeContext } from '../assets/hooks/ThemeContext'
 import MainScreen from '../components/MainScreen'
 
 const HomePage = () => {
-  const { setNavBarClass } = useContext(NavBarContext);
+  const { setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    const navBarClass = 'bg-gradient-to-r from-beige from-50% to-cherry to-50%';
-    setNavBarClass(navBarClass);
-  }, [setNavBarClass]);
+    const theme = 'variant-beige-to-cherry';
+    setTheme(theme);
+  }, [setTheme]);
 
   return (
     <>

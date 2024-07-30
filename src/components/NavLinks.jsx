@@ -1,9 +1,10 @@
 
-const Links = ({links}) => {
-	const separator = <span className="text-beige">/</span>
+const Links = ({links, className}) => {
+  className = className !== 'variant-beige-to-cherry' ? className : 'variant-inverse';
+	const separator = <span className={`${className}`}>/</span>
 
 	function getLink(label, value, index) {
-		return <a href={value} key={index} className="text-beige">
+		return <a href={value} key={index} className={`${className}`}>
 			{label}
 		</a>;
 	}
