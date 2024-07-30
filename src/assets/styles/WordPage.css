@@ -1,9 +1,10 @@
 .bg-letter {
 	position: relative;
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 
 .bg-letter::after {
+	opacity: 15%;
 	z-index: 20;
 	position: absolute;
 	top: 0;

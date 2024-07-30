@@ -21,8 +21,7 @@ export default {
         'cormorant-infant-semiBold': ['CormorantInfant-SemiBold', 'sans-serif'],
         'cormorant-infant-semiBold-italic': ['CormorantInfant-SemiBoldItalic', 'sans-serif'],
 
-        'snell-bt-bold': ['SnellBT-Bold', 'sans-serif'],
-        'snell-bt-regular': ['SnellBT-Regular', 'sans-serif'],
+		'snell': ['Snell-Roundhand', 'serif']
       },
       colors: {
         'beige': '#FAF1EB',
