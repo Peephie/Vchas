@@ -4,6 +4,7 @@ import { ThemeContext } from '../assets/hooks/ThemeContext';
 
 const NavBar = () => {
   const { theme } = useContext(ThemeContext);
+  const textColor = theme !== 'variant-beige-to-cherry' ? theme : 'text-cherry';
   const navbarStorage = [
     {label: 'Слова', value:'#'},
     {label: 'Контакти', value:'#'},
@@ -11,8 +12,8 @@ const NavBar = () => {
   ];
 
   return (
-    <div className={`flex justify-between px-16 py-10  ${theme}`}>
-      <span className='italic text-4xl'>ВЧАС</span>
+    <div className={`flex justify-between px-16 py-10 ${theme}`}>
+      <span className={`italic text-4xl ${textColor}`}>ВЧАС</span>
       <Links links={navbarStorage} className={theme}/>
     </div>
   )

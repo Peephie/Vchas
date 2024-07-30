@@ -10,16 +10,14 @@ const MainScreen = () => {
       <MainHero 
         heading='Випадкове Слово'
         subheading='ідеально для тих, кого цікавить нове'
-        primaryColor='beige'
-        brandColor='cherry'
+        textColor='text-cherry'
         linkValue='#'
         bgImage='ink-image'
       />
       <MainHero 
         heading='Переглянути Всі Слова'
         subheading='ідеально для тих, кого цікавить навчання'
-        primaryColor='cherry'
-        brandColor='beige'
+        textColor='text-beige'
         linkValue='#'
         bgImage='paper-image'
       />
