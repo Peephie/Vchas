@@ -1,20 +1,17 @@
 import React from 'react'
-// import NavBar from '../../components/Navbar'
 import { Outlet } from "react-router-dom"
-import { NavBarProvider } from '../../contexts/NavBarContext'
-import './MainLayout.css';
+import { ThemeProvider } from '../../assets/hooks/ThemeContext';
 import NavBar from '../../components/Navbar';
+import './MainLayout.css';
 
 const MainLayout = () => {
   return (
-    <NavBarProvider>
+    <ThemeProvider>
       <div className='auto-grid'>
         <NavBar/>
-        <div className='flex flex-col justify-center'>
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
-    </NavBarProvider>
+    </ThemeProvider>
   )
 }
 
