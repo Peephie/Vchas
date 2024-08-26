@@ -53,6 +53,22 @@ export default {
         '.variant-beige-to-cherry': {
           backgroundImage: theme('backgroundImage.gradient-beige-to-cherry'),
         },
+        '.bg-letter': {
+          position: 'relative',
+          overflow: 'hidden',
+          '&:after': {
+            opacity: '15%',
+            zIndex: 20,
+            position: 'absolute',
+            top: 0,
+            right: '500px',
+            content: 'attr(data-letter)',
+            fontFamily: theme('fontFamily.snell'),
+            color: theme('colors.peach'),
+            fontSize: '120vh',
+            lineHeight: '100vh'
+          }
+        }
       });
     },
   ],
