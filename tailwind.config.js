@@ -21,8 +21,7 @@ export default {
         'cormorant-infant-semiBold': ['CormorantInfant-SemiBold', 'sans-serif'],
         'cormorant-infant-semiBold-italic': ['CormorantInfant-SemiBoldItalic', 'sans-serif'],
 
-        'snell-bt-bold': ['SnellBT-Bold', 'sans-serif'],
-        'snell-bt-regular': ['SnellBT-Regular', 'sans-serif'],
+		'snell': ['Snell-Roundhand', 'serif']
       },
       colors: {
         'beige': '#FAF1EB',
@@ -54,6 +53,22 @@ export default {
         '.variant-beige-to-cherry': {
           backgroundImage: theme('backgroundImage.gradient-beige-to-cherry'),
         },
+        '.bg-letter': {
+          position: 'relative',
+          overflow: 'hidden',
+          '&:after': {
+            opacity: '15%',
+            zIndex: 20,
+            position: 'absolute',
+            top: 0,
+            right: '500px',
+            content: 'attr(data-letter)',
+            fontFamily: theme('fontFamily.snell'),
+            color: theme('colors.peach'),
+            fontSize: '120vh',
+            lineHeight: '100vh'
+          }
+        }
       });
     },
   ],
