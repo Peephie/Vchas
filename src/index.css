@@ -59,10 +59,6 @@
 	font-family: 'Snell-Roundhand';
 	src: url('/src/assets/fonts/Snell_Roundhand/Snell-Roundhand.ttf') format('truetype');
 }
-/* @font-face {
-	font-family: 'snellroundhand_bold';
-	src: url('/src/assets/fonts/Snell_Roundhand/snellroundhand_bold.otf') format('opentype');
-} */
 
 #root {
 	margin: 0;
