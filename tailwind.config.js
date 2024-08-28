@@ -89,7 +89,7 @@ export default {
             content: 'attr(data-letter)',
             fontFamily: theme('fontFamily.snell'),
             color: theme('colors.peach'),
-            fontSize: '120vh',
+            fontSize: '110vh',
             lineHeight: '100vh'
           }
         }
