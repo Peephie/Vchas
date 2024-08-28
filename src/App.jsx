@@ -7,11 +7,13 @@ import {
 import MainLayout from './layouts/MainLayout/MainLayout';
 import HomePage from './pages/HomePage';
 import './App.css'
+import WordPage from './pages/WordPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
   <Route path='/' element={<MainLayout />}>
     <Route index element={<HomePage />} />
+    <Route path='/words/:id' element={<WordPage/>} />
   </Route>
   )
 );
