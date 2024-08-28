@@ -84,12 +84,14 @@ export default {
             opacity: '15%',
             zIndex: 20,
             position: 'absolute',
-            top: 0,
-            right: '500px',
+            top: '-40px',
+            right: '200px',
+            textAlign: 'right',
             content: 'attr(data-letter)',
             fontFamily: theme('fontFamily.snell'),
+            fontWeight: 'bolder',
             color: theme('colors.peach'),
-            fontSize: '110vh',
+            fontSize: '100vh',
             lineHeight: '100vh'
           }
         }
