@@ -38,7 +38,11 @@ export default {
       },
       fontSize: {
         '14xl':'13rem'
-      }
+      },
+      minHeight: {
+        '98':  '26rem',
+        '100': '27rem',
+      }.
     },
   },
   plugins: [
