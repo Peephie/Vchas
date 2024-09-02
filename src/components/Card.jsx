@@ -1,29 +1,37 @@
 import React from 'react'
+import Utils from '../assets/utils/Utils.js';
 import serverData from '../assets/serverData.json'
+import arrow from '../assets/svg/arrow.svg'
 
 
-const Card = ({ cardInfo, variant }) => {
-	let card = serverData.cards[0];
-
-  card.id = card.id < 10 ? `0${card.id.toString()}` : card.id;
-  card.primaryWord = capitalizeFirstLetter(card.primaryWord);
-  card.relatedWord = ;
-  card.description = ;
-
-  function capitalizeFirstLetter(string) {
-    if (!string) return string;
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+const Card = ({ 
+  cardInfo, 
+  size
+}) => {
+  const card = Utils.formatCard(serverData.cards[0]);
+  const cardSize = Utils.getCardSize('large');
 
   return (
-		<div className='m-1 p-6 border border-solid border-peach'>
-			<div className='border border-solid border-coral'>
-				<div className='flex justify-between items-center'>
-					<div className='font-raleway'>1</div>
-					<div className='font-raleway text-9xl'>{formattedId}</div>
-				</div>
-			</div>
-		</div>
+    <div className={`m-1 ${cardSize.padding1} border border-solid border-peach`}>
+      <div className={`${cardSize.padding2} ${cardSize.cardMinHeight} ${cardSize.fontSize} border border-solid border-coral font-raleway flex flex-col justify-between`}>
+
+        <div className='flex justify-between items-center'>
+          <div>
+            <span className='font-cormorant-infant-semiBold'>{`${card.primaryWord} `}</span>
+            <span className='font-cormorant-infant-medium-italic'>{`( ${card.relatedWord} ) —`}</span>
+            <br/>
+            <span className='font-raleway'>{card.description}</span>
+          </div>
+
+          <div className={`${cardSize.cardIdFontSize} font-raleway pr-6`}>{card.id}</div>
+        </div>
+
+        <div className='flex justify-between items-center p-'>
+          <div><a href="">сленг</a></div>
+          <div><img src={arrow} alt="" /></div>
+        </div>
+      </div>
+    </div>
   )
 }
 

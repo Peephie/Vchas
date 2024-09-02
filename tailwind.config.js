@@ -34,7 +34,11 @@ export default {
 			},
 			gridTemplateColumns: {
 				'50/50': '50% 50%',
-			}
+			},
+      minHeight: {
+        '98':  '26rem',
+        '100': '27rem',
+      }
 		},
   },
   plugins: [
