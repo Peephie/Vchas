@@ -70,10 +70,7 @@ export default {
             fontSize: '110vh',
             lineHeight: '100vh'
           }
-        },
-        // 'text-14xl': {
-        //   fontSize: '13rem'
-        // }
+        }
       });
     },
   ],
