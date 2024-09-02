@@ -1,15 +1,16 @@
 import { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../assets/hooks/ThemeContext';
-
 
 const ErrorPage = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  
+
   useEffect(() => {
     const theme = 'variant-base';
     setTheme(theme);
   }, [setTheme]);
+
+  const navigate = useNavigate();
 
   return (
     <div className={`${theme} flex flex-col w-full h-full max-h-full`}>
@@ -25,8 +26,10 @@ const ErrorPage = () => {
         <h2 className='font-cormorant-infant-bold uppercase text-5xl mb-5'>Йой</h2>
         <span className='block font-raleway-italic font-light text-2xl mb-24'>Схоже ти збився зі шляху</span>
         <div className='w-fit h-max m-auto my-0'>
-          <Link to='/' className='px-10 py-3 border border-current font-cormorant-infant-bold-italic uppercase block' >
-            Назад до всіх
+          <Link onClick={() => navigate(-1)}
+            className='px-10 py-3 border border-current font-cormorant-infant-bold-italic uppercase block'
+          >
+            Назад
           </Link>
         </div>
       </div>
