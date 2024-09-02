@@ -20,8 +20,7 @@ export default {
         'cormorant-infant-regular': ['CormorantInfant-Regular', 'sans-serif'],
         'cormorant-infant-semiBold': ['CormorantInfant-SemiBold', 'sans-serif'],
         'cormorant-infant-semiBold-italic': ['CormorantInfant-SemiBoldItalic', 'sans-serif'],
-
-		'snell': ['Snell-Roundhand', 'serif']
+        'snell': ['Snell-Roundhand', 'serif']
       },
       colors: {
         'beige': '#FAF1EB',
@@ -37,6 +36,9 @@ export default {
       backgroundImage: {
         'gradient-beige-to-cherry': 'linear-gradient(to right, #FAF1EB 50%, #97230D 50%)',
       },
+      fontSize: {
+        '14xl':'13rem'
+      }
     },
   },
   plugins: [
