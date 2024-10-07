@@ -1,16 +1,18 @@
+import { Link } from "react-router-dom";
 
 const Links = ({links, className}) => {
   className = className !== 'variant-beige-to-cherry' ? className : 'variant-inverse';
 	const separator = <span className={`${className}`}>/</span>
 
 	function getLink(label, value, index) {
-		return <a href={value} key={index} className={`${className}`}>
+		return <Link to={value} key={index} className={`${className}`}>
 			{label}
-		</a>;
+		</Link>;
 	}
 
 	return (
-		<div className="flex justify-between gap-x-5">
+    <>
+		{/* <div className="flex justify-between gap-x-5"> */}
 			{links.map(({label, value}, index) => {
 				const link = getLink(label, value, index);
 				let separatedLink = [link];
@@ -21,7 +23,8 @@ const Links = ({links, className}) => {
 
 				return separatedLink;
 			})}
-		</div>
+		{/* </div> */}
+    </>
 	)
 }
 
