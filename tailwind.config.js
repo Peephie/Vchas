@@ -40,6 +40,9 @@ export default {
       minWidth: {
         'search': '40rem'
       },
+      fontSize: {
+        '14xl':'13rem'
+      }
     },
   },
   plugins: [
