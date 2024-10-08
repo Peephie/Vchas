@@ -20,6 +20,7 @@ export default {
         'cormorant-infant-regular': ['CormorantInfant-Regular', 'sans-serif'],
         'cormorant-infant-semiBold': ['CormorantInfant-SemiBold', 'sans-serif'],
         'cormorant-infant-semiBold-italic': ['CormorantInfant-SemiBoldItalic', 'sans-serif'],
+
         'snell': ['Snell-Roundhand', 'serif']
       },
       colors: {
@@ -35,6 +36,9 @@ export default {
       },
       backgroundImage: {
         'gradient-beige-to-cherry': 'linear-gradient(to right, #FAF1EB 50%, #97230D 50%)',
+      },
+      minWidth: {
+        'search': '40rem'
       },
       fontSize: {
         'clamp-s': 'clamp(20px, 3vw, 36px)',
@@ -52,6 +56,7 @@ export default {
   plugins: [
     function ({ addComponents, theme }) {
       addComponents({
+        // THEME VARIANTS
         '.variant-base': {
           backgroundColor: theme('colors.beige'),
           color: theme('colors.cherry'),
@@ -63,6 +68,26 @@ export default {
         '.variant-beige-to-cherry': {
           backgroundImage: theme('backgroundImage.gradient-beige-to-cherry'),
         },
+        
+        // SEARCH 
+        '.search-input': {
+          fontFamily: theme('fontFamily.raleway'),
+          fontSize: '1.875rem',
+          lineHeight: '2.25rem',
+          width: '24rem',
+          padding: '0px 0px 10px 10px',
+          marginRight: '5px',
+          outline: '2px solid transparent',
+          outlineOffset: '2px',
+          borderBottomWidth: '2px',
+        },
+        '.text-search-word': {
+          fontFamily: theme('fontFamily.raleway-italic'),
+          fontSize: '4rem',
+          lineHeight: '0.69',
+        },
+
+        //CARDS WORD_PAGES
         '.bg-letter': {
           position: 'relative',
           overflow: 'hidden',
