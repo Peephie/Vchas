@@ -41,7 +41,12 @@ export default {
         'search': '40rem'
       },
       fontSize: {
-        '14xl':'13rem'
+        'clamp-s': 'clamp(20px, 3vw, 36px)',
+        'clamp-l': 'clamp(64px, 6vw, 104px)',
+        '14xl': '13rem'
+      },
+      width: {
+        'clamp-s': 'clamp(32px, 5%, 64px)'
       }
     },
   },
