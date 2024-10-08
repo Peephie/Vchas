@@ -37,8 +37,12 @@ export default {
         'gradient-beige-to-cherry': 'linear-gradient(to right, #FAF1EB 50%, #97230D 50%)',
       },
       fontSize: {
-        '14xl':'13rem'
+        'clamp-s': 'clamp(20px, 3vw, 36px)',
+        'clamp-l': 'clamp(64px, 6vw, 104px)',
       },
+      width: {
+        'clamp-s': 'clamp(32px, 5%, 64px)'
+      }
       // minHeight: {
       //   '98':  '26rem',
       //   '100': '27rem',
