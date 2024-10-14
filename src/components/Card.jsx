@@ -13,8 +13,8 @@ const Card = (
   const formattedId = word.id < 10 ? '0' + word.id : word.id;
 
   return (
-    <div className='w-full h-full p-10 border border-peach h-6/10 leading-none'>
-      <div className={`${theme} p-10 h-full border border-peach bg-letter`} data-letter={() => word.primaryWord.slice(0, 1)}>
+    <div className='w-full h-full p-clamp-s border border-peach h-6/10 leading-none'>
+      <div className={`${theme} p-clamp-s h-full border border-peach bg-letter`} data-letter={() => word.primaryWord.slice(0, 1)}>
         <div className="flex flex-col justify-between h-full">
           <div className="flex justify-between">
             <div className='leading-normal'>

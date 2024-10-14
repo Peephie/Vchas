@@ -48,6 +48,9 @@ export default {
       width: {
         'clamp-s': 'clamp(32px, 3cqw, 64px)'
       },
+      padding: {
+        'clamp-s': 'clamp(24px, 2.5cqw, 40px)'
+      },
       aspectRatio: {
         'card': '1.66'
       }
