@@ -1,7 +1,8 @@
-import { useState, forwardRef } from 'react'
+import { useState, useEffect, useRef, forwardRef } from 'react'
 import { Link } from "react-router-dom";
 import SearchPointer from '../assets/vectors/Search/search_result_point.svg';
 import words from '../assets/data/words.json';
+import anime from 'animejs';
 
 const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const wordsData = words;
@@ -16,8 +17,26 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const [searchValue, changeSearchValue] = useState('');
   const [filteredWordsData, setFilteredWordsData] = useState([]);
 
-  const handleChangeSearchValue = (event) => {
+  const resultRefs = useRef([]);
+
+  useEffect(() => {
+    resultRefs.current = resultRefs.current.slice(0, filteredWordsData.length);
+
+    if (filteredWordsData.length === 0) {
+      return;
+    }
     
+    anime({
+      targets: resultRefs.current.filter(Boolean),
+      translateX: [-500, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(100),
+      easing: 'easeOutQuad',
+      duration: 1000,
+    });
+  }, [filteredWordsData]);
+
+  const handleChangeSearchValue = (event) => {
     const value = event.target.value;
     changeSearchValue(value);
 
@@ -58,11 +77,12 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
         <span className=' text-search-word'>ПОШУК</span>
       </div>
       <div className="mt-20 min-w-search min-h-56 flex flex-col justify-start items-start pl-2.5 gap gap-10">
-        {filteredWordsData.map((word) => (
+        {filteredWordsData.map((word, index) => (
           <Link className="flex flex-row flex-nowrap justify-start items-center text-2xl" 
             key={word.id} 
             to={`words/${word.id}`} 
-            onClick={onClose}
+            onKeyUp={onClose}
+            ref={(el) => (resultRefs.current[index] = el)}
           >
             <div className='mr-4'><SearchPointer class={`${colorBullet}`}/></div> 
             <div>
