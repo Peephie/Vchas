@@ -6,6 +6,7 @@ import TelegramSvg from '../assets/vectors/Contacts/contacts_vector-telegram.svg
 import GmailSvgFilled from '../assets/vectors/Contacts/contacts_vector-gmail_filled.svg';
 import InstagramSvgFilled from '../assets/vectors/Contacts/contacts_vector-instagram_filled.svg';
 import TelegramSvgFilled from '../assets/vectors/Contacts/contacts_vector-telegram_filled.svg';
+import BorderedButton from './BorderedButton';
 
 const NavbarContacts = forwardRef(({ theme, onClose }, ref) => {
   const linkDefaultText = 'font-raleway group-hover:font-raleway-italic font-medium group-hover:font-semibold transition-all duration-500 text-3xl uppercase ';
@@ -48,7 +49,9 @@ const NavbarContacts = forwardRef(({ theme, onClose }, ref) => {
           <span className={linkVariantsText[linkVariant]}>Telegram</span>
         </a>
       </div>
-      <Link className={returnButtonVariants[linkVariant]} onClick={onClose} to='/'>НА ГОЛОВНУ</Link>
+	  <Link onClick={onClose} to='/'>
+	  	<BorderedButton theme={theme} label='НА ГОЛОВНУ'/>
+	  </Link>
     </div>
   )
 });

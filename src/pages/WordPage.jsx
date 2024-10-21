@@ -26,7 +26,7 @@ const WordPage = () => {
       <div className={`z-30 flex flex-col justify-between relative h-full pb-16`}>
         <div className='w-fit flex cursor-pointer' onClick={goBack}>
           <PiArrowDownLeftThin className='text-peach'/>
-          <span className='text-2xl  text-peach divide-y-2 divide-peach'>
+          <span className='text-2xl text-peach divide-y-2 divide-peach'>
             <span >Назад</span>
             <div className="mt-1"></div>
           </span>

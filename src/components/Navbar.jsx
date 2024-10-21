@@ -90,7 +90,7 @@ const NavBar = () => {
   }, [searchVisible]);
   
   return (
-    <nav className={`${theme} flex justify-between px-16 py-10`}>
+    <nav className={`${theme} flex justify-between items-center px-16 py-10`}>
       <Link className={`${textColorLogoNav} italic text-4xl cursor-pointer`} to='/'>
         ВЧАС
       </Link>
