@@ -3,15 +3,11 @@ import { Link } from "react-router-dom";
 import GmailSvg from '../assets/vectors/Contacts/contacts_vector-gmail.svg';
 import InstagramSvg from '../assets/vectors/Contacts/contacts_vector-instagram.svg';
 import TelegramSvg from '../assets/vectors/Contacts/contacts_vector-telegram.svg';
-import GmailSvgFilled from '../assets/vectors/Contacts/contacts_vector-gmail_filled.svg';
-import InstagramSvgFilled from '../assets/vectors/Contacts/contacts_vector-instagram_filled.svg';
-import TelegramSvgFilled from '../assets/vectors/Contacts/contacts_vector-telegram_filled.svg';
 import BorderedButton from './BorderedButton';
 
 const NavbarContacts = forwardRef(({ theme, onClose }, ref) => {
   const linkDefaultText = 'font-raleway group-hover:font-raleway-italic font-medium group-hover:font-semibold transition-all duration-500 text-3xl uppercase ';
   const linkDefaultVectors = 'transition-colors duration-500 mx-auto ';
-  const returnButtonDefault = 'px-10 py-3 border font-cormorant-infant-semiBold-italic transition-all duration-500 text-3xl uppercase ';
   const linkVariantsText = {
     base: linkDefaultText + 'text-coral group-hover:text-cherry',
     inverse: linkDefaultText + 'text-peach group-hover:text-beige',
@@ -19,10 +15,6 @@ const NavbarContacts = forwardRef(({ theme, onClose }, ref) => {
   const linkVariantsVectors = {
     base: linkDefaultVectors + 'fill-coral group-hover:fill-cherry',
     inverse: linkDefaultVectors + 'fill-peach group-hover:fill-beige',
-  };
-  const returnButtonVariants = {
-    base: returnButtonDefault + 'text-coral hover:text-cherry ' + 'border-peach hover:border-beige',
-    inverse: returnButtonDefault + 'text-peach hover:text-beige ' + 'border-coral hover:border-cherry',
   };
 
   const textColor = theme !== 'variant-beige-to-cherry' ? theme : 'variant-inverse';
