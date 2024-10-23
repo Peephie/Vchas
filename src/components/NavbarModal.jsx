@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { useEffect, forwardRef } from 'react'
 import { Link } from "react-router-dom";
 
 const NavbarModal = forwardRef(({ children, ...props }, ref) => {
@@ -7,6 +7,16 @@ const NavbarModal = forwardRef(({ children, ...props }, ref) => {
   
   const colorBackground = theme !== 'variant-beige-to-cherry' ? theme : 'variant-inverse';
   const colorLogo = colorBackground !== 'variant-inverse' ? 'text-cherry' : 'text-beige';
+
+  useEffect(() => {
+    const close = (event) => {
+      if(event.keyCode === 27){
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  },[]);
   
   return (
     <div className={`${colorBackground} top-0 left-0 h-screen w-screen z-50 fixed`} ref={ref}>
