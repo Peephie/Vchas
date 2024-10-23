@@ -41,12 +41,20 @@ export default {
         'search': '40rem'
       },
       fontSize: {
-        'clamp-s': 'clamp(20px, 3vw, 36px)',
-        'clamp-l': 'clamp(64px, 6vw, 104px)',
+        'clamp-s': 'clamp(20px, 5cqw, 36px)',
+        'clamp-l': 'clamp(64px, 10cqw, 104px)',
+        'clamp-xl': 'clamp(150px, 50cqw, 400px)',
+        'clamp-xxl': 'clamp(150px, 75cqw, 380px)',
         '14xl': '13rem'
       },
       width: {
-        'clamp-s': 'clamp(32px, 5%, 64px)'
+        'clamp-s': 'clamp(32px, 7cqw, 64px)'
+      },
+      padding: {
+        'clamp-s': 'clamp(24px, 2.5cqw, 40px)'
+      },
+      aspectRatio: {
+        'card': '1.66'
       }
     },
   },
@@ -102,6 +110,10 @@ export default {
             fontSize: '100vh',
             lineHeight: '100vh'
           }
+        },
+
+        '.container-type-inline': {
+          containerType: 'inline-size',
         }
       });
     },
