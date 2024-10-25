@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BorderedButton = ({theme, variant, label}) => {
-  const buttonDefaultStyles = 'border font-cormorant-infant-semiBold-italic transition-all duration-500 uppercase ';
+  const buttonDefaultStyles = 'cursor-pointer border font-cormorant-infant-semiBold-italic transition-all duration-500 uppercase ';
 
   const buttonSizeVariants = {
     default: 'text-3xl px-10 py-3',
