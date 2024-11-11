@@ -11,6 +11,7 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
+  base: 'Vchas',
   server: {
     port: 3000,
   }

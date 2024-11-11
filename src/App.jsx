@@ -1,7 +1,7 @@
 import {
   Route, 
   RouterProvider,
-  createBrowserRouter, 
+  createHashRouter, 
   createRoutesFromElements
 } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout/MainLayout';
@@ -11,7 +11,7 @@ import './App.css'
 import WordPage from './pages/WordPage';
 import AllWordsPage from './pages/AllWordsPage';
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
   <Route path='/' element={<MainLayout />}>
     <Route index element={<HomePage />} />
