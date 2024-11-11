@@ -73,6 +73,47 @@ export default {
         '.variant-beige-to-cherry': {
           backgroundImage: theme('backgroundImage.gradient-beige-to-cherry'),
         },
+
+        // SCROLL
+        '.scrollbar-hide-active': {
+          'overflow-y': 'scroll',
+          'height': '100%',
+          '-webkit-overflow-scrolling': 'touch', 
+          'scrollbar-width': 'none', 
+          '-ms-overflow-style': 'none',
+        },
+        '.scrollbar-hide-active::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '.scrollbar-hide-inactive': {
+          'overflow-y': 'scroll',
+          'height': '100%',
+          '-webkit-overflow-scrolling': 'touch', 
+          'scrollbar-width': 'none', 
+          '-ms-overflow-style': 'none',
+        },
+        '.scrollbar-hide-inactive::-webkit-scrollbar': {
+          display: 'none', 
+        },
+
+        // WordsScrollView.jsx scrollbar 
+        '.custom-scrollbar::-webkit-scrollbar': {
+          // !!! ADJUST HEIGHT !!!
+          width: '4px', 
+        },
+        '.custom-scrollbar::-webkit-scrollbar-track': {
+          
+          background: theme('colors.coral'), 
+          borderLeft: '1px solid transparent', 
+          borderRight: '1px solid transparent',
+          backgroundClip: 'padding-box',
+        },
+        '.custom-scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.beige'), 
+        },
+        '.custom-scrollbar::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: theme('colors.peach'), 
+        },
         
         // SEARCH 
         '.search-input': {

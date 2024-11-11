@@ -8,9 +8,11 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const wordsData = words;
 
   const textColorSearch = theme !== 'variant-beige-to-cherry' ? theme : 'variant-inverse';
+  const borderColorSearch = theme !== 'variant-beige-to-cherry' ? 'border-cherry' : 'border-beige';
   const textColorPrimaryWord = theme !== 'variant-beige-to-cherry' || theme === 'variant-base' ? 'text-coral' : 'text-peach';
   const textColorRelatedWord = theme !== 'variant-beige-to-cherry' || theme === 'variant-base' ? 'text-peach' : 'text-coral';
   const colorBullet = textColorPrimaryWord === 'text-coral' ? 'stroke-coral' : 'stroke-peach';
+  const searchColorStyling = textColorSearch + ' ' + borderColorSearch;
   
   const [searchValue, changeSearchValue] = useState('');
   const [filteredWordsData, setFilteredWordsData] = useState([]);
@@ -68,7 +70,7 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   return (
     <div className='flex flex-col flex-nowrap justify-center items-center h-5/6	mb-20' ref={ref}>
       <div className='min-w-search flex flex-row justify-center items-end'>
-        <input className={`${textColorSearch} search-input mr-5`} 
+        <input className={`${searchColorStyling} search-input mr-5`} 
           type="text" 
           value={searchValue} 
           onChange={handleChangeSearchValue}

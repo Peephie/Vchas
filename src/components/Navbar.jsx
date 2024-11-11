@@ -10,8 +10,8 @@ import Contacts from './NavbarContacts';
 
 const NavBar = () => {
   const navbarStorage = [
-    {label: 'Слова', value:'/words'},
     {label: 'Випадкове', value:'/randomWords'},
+    {label: 'Слова', value:'/words'},
   ];
 
   const { theme } = useContext(ThemeContext);
