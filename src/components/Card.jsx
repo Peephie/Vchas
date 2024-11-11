@@ -17,15 +17,16 @@ const Card = (
       <div className={`${theme} p-clamp-s h-full border border-peach bg-letter`} data-letter={() => word.primaryWord.slice(0, 1)}>
         <div className="flex flex-col justify-between h-full">
           <div className="flex justify-between">
-            <div className='leading-normal'>
-              <span className='font-cormorant-infant-semiBold uppercase text-clamp-s'>
-                {word.primaryWord} &#91; {word.relatedWord}	&#93;	—
+            <Link to={`/words/${word.id}`} className='leading-normal'>
+              <span className='font-raleway font-semibold uppercase text-clamp-s'>
+                {word.primaryWord} &nbsp; 
+                <span className='italic'>&#91; {word.relatedWord}	&#93;	—</span>
               </span>
               <br/>
               <span className='font-raleway text-clamp-s lowercase'>
                 {word.meaning}
               </span>
-            </div>
+            </Link>
             <span className='font-raleway font-light text-clamp-l'>
               {formattedId}
             </span>
