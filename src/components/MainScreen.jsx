@@ -38,7 +38,7 @@ const MainScreen = () => {
   }
 
 	return (
-    <div className={`${theme} grid grid-cols-50/50`}>
+    <div className={`${theme} grid grid-cols-50/50 h-full`}>
       <MainHero 
         heading='Випадкове Слово'
         subheading='ідеально для тих, кого цікавить нове'

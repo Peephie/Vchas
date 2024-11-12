@@ -39,7 +39,6 @@ const NavBar = () => {
   };
 
   const toggleSearch = () => {
-    console.log('%csrc/components/Navbar.jsx:27 object', 'color: #007acc;', 'HERE');
     if (searchVisible) {
       anime({
         targets: searchRef.current,

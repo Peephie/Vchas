@@ -106,9 +106,6 @@ export default {
           borderRight: '1px solid transparent',
           backgroundClip: 'padding-box',
         },
-        '.custom-scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: theme('colors.beige'), 
-        },
         '.custom-scrollbar::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme('colors.peach'), 
         },
@@ -116,6 +113,20 @@ export default {
           height: '13.5vh',
           display: 'block',
           background: 'transparent',
+        },
+
+        '.variant-inverse .custom-scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.beige'), 
+        },
+        '.variant-base .custom-scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.cherry'), 
+        },
+
+        '.variant-inverse .custom-scrollbar::-webkit-scrollbar-track': {
+          backgroundColor: theme('colors.coral'), 
+        },
+        '.variant-base .custom-scrollbar::-webkit-scrollbar-track': {
+          backgroundColor: theme('colors.peach'), 
         },
         
         // SEARCH 
