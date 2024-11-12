@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { PiArrowDownRightThin } from "react-icons/pi";
 import anime from "animejs";
 
-const Filter = ({label, onFilterChange, options}) => {
+const Filter = ({label, options, onFilterChange}) => {
   const expandedRef = useRef(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
   let [isExpanded, setIsExpanded] = useState(false);
@@ -107,14 +107,14 @@ const Filter = ({label, onFilterChange, options}) => {
 
   return (
     <div className='flex items-center' >
-      <div className='cursor-pointer flex items-center' onClick={toggleMode}>
-        <span className='mr-2 divide-y-2 divide-coral font-raleway text-xl'>
-          <span className='label'>
+      <div className='cursor-pointer flex items-center group transition-all duration-500' onClick={toggleMode}>
+        <span className='mr-2 divide-y-2 divide-coral font-raleway text-xl group-hover:divide-cherry'>
+          <span className='label group-hover:text-cherry'>
             {label}
           </span>
           <div className="mt-1"/>
         </span>
-        <PiArrowDownRightThin className='arrow h-full w-auto inline mr-5' viewBox='60 60 136 136'/>
+        <PiArrowDownRightThin className='arrow h-full w-auto inline mr-5' stroke='group-hover:stroke-cherry' viewBox='60 60 136 136'/>
       </div>
     
       {isExpanded &&
