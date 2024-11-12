@@ -45,13 +45,13 @@ const WordsScrollView = ({ words }) => {
         <div
           key={word.id}
           className={`aspect-card container-type-inline bg-red-700 snap-always snap-start transition-transform duration-300 ease-out origin-top ${
-            index === activeCardIndex || index < activeCardIndex ? 'scale-100' : 'scale-90'
+            index === activeCardIndex || index < activeCardIndex ? 'scale-100' : 'scale-80'
           }`}
           style={{
             transform:
               index === activeCardIndex || index < activeCardIndex
                 ? 'scale(1.0)'
-                : 'scale(0.9)',
+                : 'scale(0.80)',
             transition: 'transform 0.3s ease-out',
           }}
         >
