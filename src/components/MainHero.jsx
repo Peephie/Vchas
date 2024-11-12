@@ -1,15 +1,10 @@
-// import picture from `../assets/images/`;
+import { forwardRef } from "react";
 import useImage from "../assets/hooks/useImage";
 import { Link } from "react-router-dom";
 
-const MainHero = ({
-  heading, 
-  subheading,
-  color,
-  linkValue,
-  bgImage,
-  link
-}) => {
+const MainHero = forwardRef((
+  { heading, subheading, color, linkValue, bgImage, link }, ref) => 
+{
   const textColors = {
     beige: 'text-beige',
     peach: 'text-peach',
@@ -33,8 +28,8 @@ const MainHero = ({
   const divideColor = divideColors[color];
 
   return (
-    <Link to={link} className="flex flex-col justify-center">
-      <div>
+    <div className="flex flex-col justify-center items-center">
+        <Link to={link} className="w-max block" ref={ref}>
         <h1 
           className={`${textColor} font-raleway font-semibold mb-3 uppercase text-center text-3xl`} 
           href={linkValue}
@@ -56,9 +51,11 @@ const MainHero = ({
           src={image.image} 
           className="mx-auto my-20 object-cover" alt='No Image'
         />
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
-}
+});
+
+MainHero.displayName = 'MainHero'
 
 export default MainHero
