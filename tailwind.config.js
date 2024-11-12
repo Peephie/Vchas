@@ -98,11 +98,9 @@ export default {
 
         // WordsScrollView.jsx scrollbar 
         '.custom-scrollbar::-webkit-scrollbar': {
-          // !!! ADJUST HEIGHT !!!
           width: '4px', 
         },
         '.custom-scrollbar::-webkit-scrollbar-track': {
-          
           background: theme('colors.coral'), 
           borderLeft: '1px solid transparent', 
           borderRight: '1px solid transparent',
@@ -113,6 +111,11 @@ export default {
         },
         '.custom-scrollbar::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme('colors.peach'), 
+        },
+        '.custom-scrollbar::-webkit-scrollbar-button:end:increment': {
+          height: '13.5vh',
+          display: 'block',
+          background: 'transparent',
         },
         
         // SEARCH 
