@@ -4,37 +4,34 @@ import Card from './Card';
 const WordsScrollView = ({ words }) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
   const scrollableContainerRef = useRef(null);
+  const cardRefs = useRef([]); // Reference to each card
 
   useEffect(() => {
-    const handleScroll = () => {
-      const container = scrollableContainerRef.current;
-      if (!container) return;
+    const container = scrollableContainerRef.current;
+    if (!container) return;
 
-      const scrollTop = container.scrollTop;
-      const containerHeight = container.offsetHeight;
-      const cardHeight = container.firstChild.offsetHeight;
-
-      // Calculate the center offset to identify the active card based on the center position
-      const centerOffset = scrollTop + containerHeight / 2;
-      let newActiveIndex = Math.round(centerOffset / cardHeight) - 1;
-
-      // Correct index for edge cases (especially at the end)
-      const maxIndex = words.length - 1;
-      if (newActiveIndex < 0) newActiveIndex = 0;
-      if (newActiveIndex > maxIndex) newActiveIndex = maxIndex;
-
-      // Update active card only if it has changed
-      if (newActiveIndex !== activeCardIndex) {
-        setActiveCardIndex(newActiveIndex);
-      }
+    // Create an observer to detect when each card is centered
+    const observerOptions = {
+      root: container,
+      rootMargin: '0px',
+      threshold: 0.5, // Trigger when 50% of card is visible
     };
 
-    const container = scrollableContainerRef.current;
-    container.addEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.dataset.index);
+          setActiveCardIndex(index);
+        }
+      });
+    }, observerOptions);
 
-    // Cleanup event listener on component unmount
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [activeCardIndex, words.length]);
+    // Observe each card
+    cardRefs.current.forEach((card) => observer.observe(card));
+
+    // Cleanup observer on component unmount
+    return () => observer.disconnect();
+  }, [words.length]);
 
   return (
     <div
@@ -44,14 +41,13 @@ const WordsScrollView = ({ words }) => {
       {words.map((word, index) => (
         <div
           key={word.id}
+          data-index={index}
+          ref={(el) => (cardRefs.current[index] = el)}
           className={`aspect-card container-type-inline bg-red-700 snap-always snap-start transition-transform duration-300 ease-out origin-top ${
-            index === activeCardIndex || index < activeCardIndex ? 'scale-100' : 'scale-80'
+            index === activeCardIndex ? 'scale-100' : 'scale-80'
           }`}
           style={{
-            transform:
-              index === activeCardIndex || index < activeCardIndex
-                ? 'scale(1.0)'
-                : 'scale(0.80)',
+            transform: index === activeCardIndex ? 'scale(1.0)' : 'scale(0.8)',
             transition: 'transform 0.3s ease-out',
           }}
         >
