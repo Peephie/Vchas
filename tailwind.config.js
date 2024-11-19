@@ -21,7 +21,7 @@ export default {
         'cormorant-infant-semiBold': ['CormorantInfant-SemiBold', 'sans-serif'],
         'cormorant-infant-semiBold-italic': ['CormorantInfant-SemiBoldItalic', 'sans-serif'],
 
-        'snell': ['Snell-Roundhand', 'serif']
+        'snell': ['Snell-Roundhand', 'serif'],
       },
       colors: {
         'beige': '#FAF1EB',
@@ -38,7 +38,7 @@ export default {
         'gradient-beige-to-cherry': 'linear-gradient(to right, #FAF1EB 50%, #97230D 50%)',
       },
       minWidth: {
-        'search': '40rem'
+        'search': '40rem',
       },
       fontSize: {
         'clamp-s': 'clamp(20px, 3.5cqw, 36px)',
@@ -48,13 +48,14 @@ export default {
         '14xl': '13rem'
       },
       width: {
-        'clamp-s': 'clamp(32px, 5cqw, 64px)'
+        'clamp-s': 'clamp(32px, 5cqw, 64px)',
       },
       padding: {
-        'clamp-s': 'clamp(24px, 2.5cqw, 40px)'
+        'clamp-s': 'clamp(24px, 2.5cqw, 40px)',
       },
       aspectRatio: {
-        'card': '1.66'
+        'card': '1.66',
+		'scroll-view': '1.44',
       }
     },
   },
@@ -86,7 +87,7 @@ export default {
           display: 'none',
         },
         '.scrollbar-hide-inactive': {
-          'overflow-y': 'scroll',
+          'overflow-y': 'hidden',
           'height': '100%',
           '-webkit-overflow-scrolling': 'touch', 
           'scrollbar-width': 'none', 
@@ -106,16 +107,27 @@ export default {
           borderRight: '1px solid transparent',
           backgroundClip: 'padding-box',
         },
-        '.custom-scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: theme('colors.beige'), 
-        },
         '.custom-scrollbar::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme('colors.peach'), 
         },
         '.custom-scrollbar::-webkit-scrollbar-button:end:increment': {
-          height: '13.5vh',
+          height: '15vh',
           display: 'block',
           background: 'transparent',
+        },
+
+        '.variant-inverse .custom-scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.beige'), 
+        },
+        '.variant-base .custom-scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.cherry'), 
+        },
+
+        '.variant-inverse .custom-scrollbar::-webkit-scrollbar-track': {
+          backgroundColor: theme('colors.coral'), 
+        },
+        '.variant-base .custom-scrollbar::-webkit-scrollbar-track': {
+          backgroundColor: theme('colors.peach'), 
         },
         
         // SEARCH 
@@ -152,7 +164,7 @@ export default {
             fontWeight: 'bolder',
             color: theme('colors.peach'),
             fontSize: '100vh',
-            lineHeight: '100vh'
+            lineHeight: '100vh',
           }
         },
 
