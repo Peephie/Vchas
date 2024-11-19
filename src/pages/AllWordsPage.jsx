@@ -50,7 +50,7 @@ const AllWordsPage = () => {
   }
 
   return (
-    <div className={`${theme} scrollbar-hide-active px-16`}>
+    <div className={`${theme} ${isScrollView ? 'scrollbar-hide-inactive' : 'scrollbar-hide-active'} px-16`}>
       <WordsUtilityBar 
         theme={theme} 
         filterOptions={filterOptions} 
