@@ -100,7 +100,7 @@ const NavBar = () => {
   
   return (
     <nav className={`${theme} flex justify-between items-center px-16 py-10`}>
-      <Link className={`${textColorLogoNav} italic text-4xl cursor-pointer`} to='/'>
+      <Link to='/' className='max-h-[40px] object-cover'>
         {getLogo()}
       </Link>
       <div className="flex justify-between gap-x-5">
