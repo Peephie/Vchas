@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 
 const WordsScrollView = ({ words }) => {
-  const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const scrollableContainerRef = useRef(null);
-  const cardRefs = useRef([]); // Reference to each card
+  const cardRefs = useRef([]);
 
   useEffect(() => {
     const container = scrollableContainerRef.current;
@@ -26,12 +26,14 @@ const WordsScrollView = ({ words }) => {
       });
     }, observerOptions);
 
-    // Observe each card
-    cardRefs.current.forEach((card) => observer.observe(card));
+    // Ensure cardRefs are valid before observing
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
 
-    // Cleanup observer on component unmount
+    // Cleanup observer on component unmount or words change
     return () => observer.disconnect();
-  }, [words.length]);
+  }, [words]); // Re-run effect when `words` changes
 
   return (
     <div
@@ -42,7 +44,7 @@ const WordsScrollView = ({ words }) => {
         <div
           key={word.id}
           data-index={index}
-          ref={(el) => (cardRefs.current[index] = el)}
+          ref={(el) => (cardRefs.current[index] = el)} // Assign ref for each card
           className={`aspect-card container-type-inline bg-red-700 snap-always snap-start transition-transform duration-300 ease-out origin-top ${
             index === activeCardIndex ? 'scale-100' : 'scale-80'
           }`}
