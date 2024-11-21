@@ -29,7 +29,7 @@ const RandomWordsPage = () => {
   }
   
   return (
-    <div className={`${theme} flex flex-col max-h-full px-16`}>
+    <div className={`${theme} flex flex-col max-h-full px-16 scrollbar-hide-inactive`}>
       <h1 className='font-cormorant-infant-bold text-5xl text-center mt-5 mb-8 uppercase'>випадкове слово</h1>
       <WordsScrollView words={randomWords}/>
     </div>

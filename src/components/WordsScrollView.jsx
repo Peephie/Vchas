@@ -1,16 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Card from './Card';
 
 const WordsScrollView = ({ words }) => {
+  const ukrainianAlphabet = [
+    'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И', 'І', 'Ї', 'Й',
+    'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч',
+    'Ш', 'Щ', 'Ь', 'Ю', 'Я'
+  ];
+
+  const location = useLocation();
+  const locationPathname = location.pathname.replace('/', '');
+  const isRandomWordsPage = locationPathname === 'randomWords';
+
+  const cardsContainerStyles = isRandomWordsPage ? 'w-[68%] px-20' : 'w-[59%] pr-20';
+
   const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
   const scrollableContainerRef = useRef(null);
+  const sidebarRef = useRef(null);
   const cardRefs = useRef([]); // Reference to each card
 
   useEffect(() => {
     const container = scrollableContainerRef.current;
     if (!container) return;
 
-    // Create an observer to detect when each card is centered
     const observerOptions = {
       root: container,
       rootMargin: '0px',
@@ -26,34 +39,71 @@ const WordsScrollView = ({ words }) => {
       });
     }, observerOptions);
 
-    // Observe each card
     cardRefs.current.forEach((card) => observer.observe(card));
 
-    // Cleanup observer on component unmount
     return () => observer.disconnect();
   }, [words.length]);
 
+  useEffect(() => {
+    if (activeCardIndex < words.length) {
+      const letter = words[activeCardIndex].primaryWord[0];
+      const index = ukrainianAlphabet.indexOf(letter);
+      if (sidebarRef.current && index !== -1) {
+        const sidebarItem = sidebarRef.current.children[index];
+        sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, [activeCardIndex, words, ukrainianAlphabet]);
+
+  const scrollToLetter = (letter) => {
+    const index = words.findIndex((word) => word.primaryWord.startsWith(letter));
+    if (index !== -1 && cardRefs.current[index]) {
+      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div
-      ref={scrollableContainerRef}
-      className="w-full max-w-[70%] mx-auto overflow-y-scroll grid grid-cols-subgrid gap-12 px-20 snap-y snap-mandatory custom-scrollbar"
+      className={`${!isRandomWordsPage ? 'flex flex-row justify-center' : ''} w-full max-h-full mx-auto pb-[100px]`}
     >
-      {words.map((word, index) => (
+      {!isRandomWordsPage && (
         <div
-          key={word.id}
-          data-index={index}
-          ref={(el) => (cardRefs.current[index] = el)}
-          className={`aspect-card container-type-inline bg-red-700 snap-always snap-start transition-transform duration-300 ease-out origin-top ${
-            index === activeCardIndex ? 'scale-100' : 'scale-80'
-          }`}
-          style={{
-            transform: index === activeCardIndex ? 'scale(1.0)' : 'scale(0.8)',
-            transition: 'transform 0.3s ease-out',
-          }}
+          ref={sidebarRef}
+          className="w-[100px] mr-20 gap-14 flex flex-col justify-start items-center font-raleway font-medium text-4xl text-peach overflow-y-scroll h-[80vh] scrollbar-hide-active"
         >
-          <Card word={word} />
+          {ukrainianAlphabet.map((letter, idx) => (
+            <div
+              key={letter}
+              onClick={() => scrollToLetter(letter)}
+              className={`cursor-pointer ${
+                words[activeCardIndex]?.primaryWord[0] === letter
+                  ? 'text-cherry font-bold'
+                  : ''
+              }`}
+            >
+              <p>{letter}</p>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
+
+      <div
+        ref={scrollableContainerRef}
+        className={`${cardsContainerStyles} justify-self-center h-full overflow-y-scroll grid grid-cols-subgrid gap-12 snap-y snap-mandatory custom-scrollbar`}
+      >
+        {words.map((word, index) => (
+          <div
+            key={word.id}
+            data-index={index}
+            ref={(el) => (cardRefs.current[index] = el)}
+            className={`aspect-card container-type-inline bg-red-700 scale snap-always snap-start transition-transform duration-300 ease-out origin-top ${
+              index === activeCardIndex ? 'scale-100' : 'scale-80'
+            }`}
+          >
+            <Card word={word} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

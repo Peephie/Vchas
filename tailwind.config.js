@@ -55,8 +55,11 @@ export default {
       },
       aspectRatio: {
         'card': '1.66',
-		'scroll-view': '1.44',
-      }
+        'scroll-view': '1.44',
+      },
+      scale: {
+        '80' : '.8',
+      },
     },
   },
   plugins: [

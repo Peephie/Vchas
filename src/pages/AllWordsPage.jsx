@@ -57,7 +57,7 @@ const AllWordsPage = () => {
         onFilterChange={onFilterChange} 
         onViewChange={onViewChange} 
       />
-    <div className={`${isScrollView ? 'flex flex-col max-h-full' : 'scrollbar-hide-active'}`}>
+    <div className={`${isScrollView ? 'flex flex-col max-h-full scrollbar-hide-inactive' : 'scrollbar-hide-active'}`}>
       {
         isScrollView ? 
         <WordsScrollView words={filteredWords}/> : 
