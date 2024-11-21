@@ -1,6 +1,8 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { ThemeContext } from '../assets/hooks/ThemeContext';
 import { Link } from "react-router-dom";
+import DarkLogo from '../assets/vectors/logo-dark.svg';
+import LightLogo from '../assets/vectors/logo-light.svg';
 import anime from 'animejs';
 import Links from './NavbarLinks';
 import Modal from './NavbarModal';
@@ -23,6 +25,14 @@ const NavBar = () => {
   
   const searchRef = useRef(null);
   const contactsRef = useRef(null);
+
+  const getLogo = () => {
+    if (theme === 'variant-inverse') {
+      return <LightLogo />
+    }
+
+    return <DarkLogo/>
+  };
 
   const toggleContacts = () => {
     if (contactsVisible) {
@@ -90,8 +100,8 @@ const NavBar = () => {
   
   return (
     <nav className={`${theme} flex justify-between items-center px-16 py-10`}>
-      <Link className={`${textColorLogoNav} italic text-4xl cursor-pointer`} to='/'>
-        ВЧАС
+      <Link to='/' className='max-h-[40px] object-cover'>
+        {getLogo()}
       </Link>
       <div className="flex justify-between gap-x-5">
         <Links links={navbarStorage} className={theme}/>

@@ -16,6 +16,7 @@ const WordsScrollView = ({ words }) => {
   const cardsContainerStyles = isRandomWordsPage ? 'w-[70%] px-20' : 'w-[70%] pr-20';
 
   const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const scrollableContainerRef = useRef(null);
   const sidebarRef = useRef(null);
   const cardRefs = useRef([]); // Reference to each card
@@ -41,9 +42,14 @@ const WordsScrollView = ({ words }) => {
       });
     }, observerOptions);
 
-    cardRefs.current.forEach((card) => observer.observe(card));
+    // Ensure cardRefs are valid before observing
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
 
+    // Cleanup observer on component unmount or words change
     return () => observer.disconnect();
+  }, [words]); // Re-run effect when `words` changes
   }, [words.length]);
 
   useEffect(() => {
