@@ -13,12 +13,14 @@ const WordsScrollView = ({ words }) => {
   const locationPathname = location.pathname.replace('/', '');
   const isRandomWordsPage = locationPathname === 'randomWords';
 
-  const cardsContainerStyles = isRandomWordsPage ? 'w-[68%] px-20' : 'w-[59%] pr-20';
+  const cardsContainerStyles = isRandomWordsPage ? 'w-[70%] px-20' : 'w-[70%] pr-20';
 
   const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
   const scrollableContainerRef = useRef(null);
   const sidebarRef = useRef(null);
   const cardRefs = useRef([]); // Reference to each card
+
+  let isScrolledFromSideBar = false;
 
   useEffect(() => {
     const container = scrollableContainerRef.current;
@@ -45,9 +47,16 @@ const WordsScrollView = ({ words }) => {
   }, [words.length]);
 
   useEffect(() => {
+    console.log('%csrc/components/WordsScrollView.jsx:50 isScrolledFromSideBar', 'color: #007acc;', isScrolledFromSideBar);
+    if (isScrolledFromSideBar) {
+      isScrolledFromSideBar = false;
+      return;
+    }
+
     if (activeCardIndex < words.length) {
       const letter = words[activeCardIndex].primaryWord[0];
       const index = ukrainianAlphabet.indexOf(letter);
+
       if (sidebarRef.current && index !== -1) {
         const sidebarItem = sidebarRef.current.children[index];
         sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -56,11 +65,29 @@ const WordsScrollView = ({ words }) => {
   }, [activeCardIndex, words, ukrainianAlphabet]);
 
   const scrollToLetter = (letter) => {
+    if (!isScrolledFromSideBar) {
+      isScrolledFromSideBar = true;
+      console.log('%csrc/components/WordsScrollView.jsx:66 isScrolledFromSideBar', 'color: #007acc;', isScrolledFromSideBar);
+    }
     const index = words.findIndex((word) => word.primaryWord.startsWith(letter));
     if (index !== -1 && cardRefs.current[index]) {
-      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: "start" });
+    }
+  
+    // Check sidebar visibility and scroll only if needed
+    const alphabetIndex = ukrainianAlphabet.indexOf(letter);
+    const sidebarItem = sidebarRef.current?.children[alphabetIndex];
+    if (sidebarItem) {
+      const { top, bottom } = sidebarItem.getBoundingClientRect();
+      const { top: sidebarTop, bottom: sidebarBottom } = sidebarRef.current.getBoundingClientRect();
+  
+      // Scroll sidebar if the item is out of view
+      if (top < sidebarTop || bottom > sidebarBottom) {
+        sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: "start" });
+      }
     }
   };
+  
 
   return (
     <div
@@ -69,16 +96,16 @@ const WordsScrollView = ({ words }) => {
       {!isRandomWordsPage && (
         <div
           ref={sidebarRef}
-          className="w-[100px] mr-20 gap-14 flex flex-col justify-start items-center font-raleway font-medium text-4xl text-peach overflow-y-scroll h-[80vh] scrollbar-hide-active"
+          className="w-[100px] gap-14 flex flex-col justify-start items-center font-raleway font-medium text-4xl text-peach overflow-y-scroll overflow-x-hidden h-[80vh] scrollbar-hide-active"
         >
-          {ukrainianAlphabet.map((letter, idx) => (
+          {ukrainianAlphabet.map((letter) => (
             <div
               key={letter}
               onClick={() => scrollToLetter(letter)}
-              className={`cursor-pointer ${
+              className={`cursor-pointer transition-transform duration-300 min-w-full text-center ${
                 words[activeCardIndex]?.primaryWord[0] === letter
-                  ? 'text-cherry font-bold'
-                  : ''
+                  ? 'text-cherry font-cormorant-infant-bold-italic p-1 border-b border-cherry scale-150' // Highlight and scale
+                  : 'scale-100' // Reset scale for inactive
               }`}
             >
               <p>{letter}</p>
@@ -89,7 +116,8 @@ const WordsScrollView = ({ words }) => {
 
       <div
         ref={scrollableContainerRef}
-        className={`${cardsContainerStyles} justify-self-center h-full overflow-y-scroll grid grid-cols-subgrid gap-12 snap-y snap-mandatory custom-scrollbar`}
+        className={`w-[70%] px-20 justify-self-center h-full overflow-y-scroll grid grid-cols-subgrid gap-12 snap-y snap-mandatory custom-scrollbar`}
+        // className={`${cardsContainerStyles} justify-self-center h-full overflow-y-scroll grid grid-cols-subgrid gap-12 snap-y snap-mandatory custom-scrollbar`}
       >
         {words.map((word, index) => (
           <div
