@@ -40,24 +40,24 @@ const NavbarContacts = forwardRef(({ theme, onClose }, ref) => {
         <h1 className={`${textColor} uppercase text-5xl font-cormorant-infant-bold mb-5`}>КОНТАКТИ</h1>
         <p className={`${textColor} text-2xl font-light font-raleway-italic`}>Ми на звʼязку у будь-якому зручному місці</p>
       </div>
-      <div className='flex flex-row flex-nowrap justify-between items-center w-3/4 max-w-screen-lg text-center gap'>
+      <div className='flex flex-row flex-nowrap justify-center items-center gap-40 w-3/4 max-w-screen-lg text-center gap'>
       
-        <a className='group basis-1/3' href={linkMap.gmail.url} target={linkMap.gmail.target}>
+        <a className='group ' href={linkMap.gmail.url} target={linkMap.gmail.target}>
           <div className='mb-10'><GmailSvg class={linkVariantsVectors[linkVariant]} /></div>
           <span className={linkVariantsText[linkVariant]}>Gmail</span>
         </a>
-        <a className='group basis-1/3' href={linkMap.instagram.url} target={linkMap.instagram.target}>
+        <a className='group ' href={linkMap.instagram.url} target={linkMap.instagram.target}>
         <div className='mb-10'><InstagramSvg class={linkVariantsVectors[linkVariant]} /></div>
           <span className={linkVariantsText[linkVariant]}>Instagram</span>
         </a>
-        <a className='group basis-1/3' href={linkMap.telegram.url} target={linkMap.telegram.target} onClick={onClose}>
+        {/* <a className='group basis-1/3' href={linkMap.telegram.url} target={linkMap.telegram.target} onClick={onClose}>
           <div className='mb-10'><TelegramSvg class={linkVariantsVectors[linkVariant]} /></div>
           <span className={linkVariantsText[linkVariant]}>Telegram</span>
-        </a>
+        </a> */}
       </div>
-	  <Link onClick={onClose} to='/'>
-	  	<BorderedButton theme={theme} label='НА ГОЛОВНУ'/>
-	  </Link>
+    <Link onClick={onClose} to='/'>
+      <BorderedButton theme={theme} label='НА ГОЛОВНУ'/>
+    </Link>
     </div>
   )
 });

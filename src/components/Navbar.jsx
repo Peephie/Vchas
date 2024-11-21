@@ -32,7 +32,7 @@ const NavBar = () => {
     }
 
     return <DarkLogo/>
-  }
+  };
 
   const toggleContacts = () => {
     if (contactsVisible) {
