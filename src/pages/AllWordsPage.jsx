@@ -50,18 +50,20 @@ const AllWordsPage = () => {
   }
 
   return (
-    <div className={`${theme} px-16 scrollbar-hide-active`}>
+    <div className={`${theme} ${isScrollView ? 'scrollbar-hide-inactive' : 'scrollbar-hide-active'} px-16`}>
       <WordsUtilityBar 
         theme={theme} 
         filterOptions={filterOptions} 
         onFilterChange={onFilterChange} 
         onViewChange={onViewChange} 
       />
+    <div className={`${isScrollView ? 'flex flex-col max-h-full' : 'scrollbar-hide-active'}`}>
       {
         isScrollView ? 
         <WordsScrollView words={filteredWords}/> : 
         <WordsGridView words={filteredWords} />
       }
+    </div>
     </div>
   )
 }

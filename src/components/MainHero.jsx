@@ -28,31 +28,30 @@ const MainHero = forwardRef((
   const divideColor = divideColors[color];
 
   return (
-    <div className="flex flex-col justify-center items-center">
-        <Link to={link} className="w-max block" ref={ref}>
-        <h1 
-          className={`${textColor} font-raleway font-semibold mb-3 uppercase text-center text-3xl`} 
-          href={linkValue}
-        >
-          {heading}
-        </h1>
-    
-        <h2 className={`${textColor} font-raleway-italic font-light mb-9 text-center text-xl`}>
-          {subheading}
-        </h2>
+      <div className="flex flex-col justify-center items-center w-full">
+          <Link to={link} className="w-max block" ref={ref}>
+          <h1 
+            className={`${textColor} font-raleway font-semibold mb-3 uppercase text-center text-3xl`} 
+            href={linkValue}
+          >
+            {heading}
+          </h1>
+      
+          <h2 className={`${textColor} font-raleway-italic font-light mb-9 text-center text-xl`}>
+            {subheading}
+          </h2>
 
-        <div className={`${divideColor} flex flex-col justify-center items-center divide-y-2`}>
-          <div></div>
-          <div className=" w-[100px] mt-1"></div>
-        </div>
+          <div className={`${divideColor} flex flex-col justify-center items-center divide-y-2`}>
+            <div></div>
+            <div className=" w-[100px] mt-1"></div>
+          </div>
 
-        <img
-          // src={require(`../img/${bgImage}.png`)}
-          src={image.image} 
-          className="mx-auto my-20 object-cover" alt='No Image'
-        />
-      </Link>
-    </div>
+          <img
+            src={image.image} 
+            className="mx-auto my-20 object-cover" alt='No Image'
+          />
+        </Link>
+      </div>
   )
 });
 

@@ -7,10 +7,14 @@ import anime from 'animejs';
 const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const wordsData = words;
 
-  const textColorSearch = theme !== 'variant-beige-to-cherry' ? theme : 'variant-inverse';
-  const borderColorSearch = theme !== 'variant-beige-to-cherry' ? 'border-cherry' : 'border-beige';
-  const textColorPrimaryWord = theme !== 'variant-beige-to-cherry' || theme === 'variant-base' ? 'text-coral' : 'text-peach';
-  const textColorRelatedWord = theme !== 'variant-beige-to-cherry' || theme === 'variant-base' ? 'text-peach' : 'text-coral';
+  const isBaseTheme = theme === 'variant-base';
+  const isInverseTheme = theme === 'variant-inverse';
+  const isBeigeToCherryTheme = theme === 'variant-beige-to-cherry';
+
+  const textColorSearch = !isBeigeToCherryTheme ? theme : 'variant-inverse';
+  const borderColorSearch = isBeigeToCherryTheme || isInverseTheme ? 'border-beige' : 'border-cherry';
+  const textColorPrimaryWord = !isBeigeToCherryTheme || isBaseTheme ? 'text-coral' : 'text-peach';
+  const textColorRelatedWord = !isBeigeToCherryTheme || isBaseTheme ? 'text-peach' : 'text-coral';
   const colorBullet = textColorPrimaryWord === 'text-coral' ? 'stroke-coral' : 'stroke-peach';
   const searchColorStyling = textColorSearch + ' ' + borderColorSearch;
   

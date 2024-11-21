@@ -11,9 +11,9 @@ const HomePage = () => {
   }, [setTheme]);
 
   return (
-    <>
+    <div className='scrollbar-hide-active'>
       <MainScreen />
-    </>
+    </div>
   )
 }
 
