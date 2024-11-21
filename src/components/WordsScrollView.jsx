@@ -15,7 +15,6 @@ const WordsScrollView = ({ words }) => {
 
   const cardsContainerStyles = isRandomWordsPage ? 'w-[70%] px-20' : 'w-[70%] pr-20';
 
-  const [activeCardIndex, setActiveCardIndex] = useState(0); // Track the active snapped card
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const scrollableContainerRef = useRef(null);
   const sidebarRef = useRef(null);
@@ -50,7 +49,6 @@ const WordsScrollView = ({ words }) => {
     // Cleanup observer on component unmount or words change
     return () => observer.disconnect();
   }, [words]); // Re-run effect when `words` changes
-  }, [words.length]);
 
   useEffect(() => {
     console.log('%csrc/components/WordsScrollView.jsx:50 isScrolledFromSideBar', 'color: #007acc;', isScrolledFromSideBar);
