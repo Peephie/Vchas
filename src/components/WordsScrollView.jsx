@@ -12,6 +12,7 @@ const WordsScrollView = ({ words }) => {
   const location = useLocation();
   const locationPathname = location.pathname.replace('/', '');
   const isRandomWordsPage = locationPathname === 'randomWords';
+  const cardVariant = isRandomWordsPage ? 'id-hidden' : 'bg-letter'
 
   const cardsContainerStyles = isRandomWordsPage ? 'w-[70%] px-20' : 'w-[70%] pr-20';
 
@@ -132,7 +133,7 @@ const WordsScrollView = ({ words }) => {
               index === activeCardIndex ? 'scale-100' : 'scale-80'
             }`}
           >
-            <Card word={word} />
+            <Card word={word} variant={cardVariant} />
           </div>
         ))}
       </div>

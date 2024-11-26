@@ -50,12 +50,14 @@ export default {
       width: {
         'clamp-s': 'clamp(32px, 5cqw, 64px)',
       },
+      height: {
+        'clamp-l': 'clamp(48px, 9cqw, 104px)',
+      },
       padding: {
         'clamp-s': 'clamp(24px, 2.5cqw, 40px)',
       },
       aspectRatio: {
         'card': '1.66',
-        'scroll-view': '1.44',
       },
       scale: {
         '80' : '.8',
@@ -168,6 +170,26 @@ export default {
             color: theme('colors.peach'),
             fontSize: '100vh',
             lineHeight: '100vh',
+          }
+        },
+
+        '.bg-letter-card': {
+          // containerType: 'inline-size',
+          position: 'relative',
+          overflow: 'hidden',
+          '&:after': {
+            opacity: '15%',
+            zIndex: 20,
+            position: 'absolute',
+            top: '0cqw',
+            right: '20cqw',
+            textAlign: 'right',
+            content: 'attr(data-letter)',
+            fontFamily: theme('fontFamily.snell'),
+            fontWeight: 'bolder',
+            color: theme('colors.peach'),
+            fontSize: 'calc(100cqw / 1.5)',
+            lineHeight: '1',
           }
         },
 
