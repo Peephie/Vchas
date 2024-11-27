@@ -51,7 +51,6 @@ const WordsScrollView = ({ words }) => {
   }, [words]); // Re-run effect when `words` changes
 
   useEffect(() => {
-    console.log('%csrc/components/WordsScrollView.jsx:50 isScrolledFromSideBar', 'color: #007acc;', isScrolledFromSideBar);
     if (isScrolledFromSideBar) {
       isScrolledFromSideBar = false;
       return;
@@ -71,7 +70,6 @@ const WordsScrollView = ({ words }) => {
   const scrollToLetter = (letter) => {
     if (!isScrolledFromSideBar) {
       isScrolledFromSideBar = true;
-      console.log('%csrc/components/WordsScrollView.jsx:66 isScrolledFromSideBar', 'color: #007acc;', isScrolledFromSideBar);
     }
     const index = words.findIndex((word) => word.primaryWord.startsWith(letter));
     if (index !== -1 && cardRefs.current[index]) {
@@ -100,7 +98,7 @@ const WordsScrollView = ({ words }) => {
       {!isRandomWordsPage && (
         <div
           ref={sidebarRef}
-          className="w-[100px] gap-14 flex flex-col justify-start items-center font-raleway font-medium text-4xl text-peach overflow-y-scroll overflow-x-hidden h-[80vh] scrollbar-hide-active"
+          className="w-[100px] gap-14 flex flex-col justify-start items-center font-raleway font-medium text-4xl text-peach overflow-y-scroll overflow-x-hidden scrollbar-hide-inactive h-[90%]"
         >
           {ukrainianAlphabet.map((letter) => (
             <div
