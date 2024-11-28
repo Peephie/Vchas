@@ -32,8 +32,8 @@ const NavbarModal = forwardRef(({ children, ...props }, ref) => {
     <div className={`${colorBackground} top-0 left-0 h-screen w-screen z-50 fixed`} ref={ref}>
       <div className='flex justify-between px-16 py-10'>
         <Link className={`${colorLogo} italic text-4xl`} onClick={onClose} to='/'>
-    {getLogo()}
-    </Link>
+          {getLogo()}
+        </Link>
         <div className='cursor-pointer text-4xl' onClick={onClose}>X</div>
       </div>
 
