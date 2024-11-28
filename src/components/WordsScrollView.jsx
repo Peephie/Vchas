@@ -51,11 +51,6 @@ const WordsScrollView = ({ words }) => {
   }, [words]); // Re-run effect when `words` changes
 
   useEffect(() => {
-    if (isScrolledFromSideBar) {
-      isScrolledFromSideBar = false;
-      return;
-    }
-
     if (activeCardIndex < words.length) {
       const letter = words[activeCardIndex].primaryWord[0];
       const index = ukrainianAlphabet.indexOf(letter);
@@ -68,12 +63,10 @@ const WordsScrollView = ({ words }) => {
   }, [activeCardIndex, words, ukrainianAlphabet]);
 
   const scrollToLetter = (letter) => {
-    if (!isScrolledFromSideBar) {
-      isScrolledFromSideBar = true;
-    }
     const index = words.findIndex((word) => word.primaryWord.startsWith(letter));
+
     if (index !== -1 && cardRefs.current[index]) {
-      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: "start" });
+      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', inline: "start" });
     }
   
     // Check sidebar visibility and scroll only if needed
@@ -85,7 +78,7 @@ const WordsScrollView = ({ words }) => {
   
       // Scroll sidebar if the item is out of view
       if (top < sidebarTop || bottom > sidebarBottom) {
-        sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: "start" });
+        sidebarItem.scrollIntoView({ behavior: 'smooth', inline: "start" });
       }
     }
   };
