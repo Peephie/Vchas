@@ -38,25 +38,29 @@ const MainScreen = () => {
   }
 
 	return (
-    <div className={`${theme} grid grid-cols-50/50 h-full`}>
-      <MainHero 
-        heading='Випадкове Слово'
-        subheading='ідеально для тих, кого цікавить нове'
-        color='cherry'
-        linkValue='#'
-        bgImage='ink-image'
-        link='/randomWords'
-        ref={randomWordsRef}
-      />
-      <MainHero 
-        heading='Всі Слова'
-        subheading='ідеально для тих, кого цікавить навчання'
-        color='beige'
-        linkValue='#'
-        bgImage='paper-image'
-        link='/words'
-        ref={allWordsRef}
-      />
+    <div className={`${theme} grid grid-cols-50/50 w-full h-full container-type-inline`}>
+      <div className='flex justify-center self-center max-h-[60cqh]'
+        ref={randomWordsRef}>
+        <MainHero 
+          heading='Випадкове Слово'
+          subheading='ідеально для тих, кого цікавить нове'
+          color='cherry'
+          linkValue='#'
+          bgImage='ink-image'
+          link='/randomWords'
+        />
+      </div>
+      <div className='flex justify-center self-center max-h-[60cqh]'
+        ref={allWordsRef}>
+        <MainHero 
+          heading='Всі Слова'
+          subheading='ідеально для тих, кого цікавить навчання'
+          color='beige'
+          linkValue='#'
+          bgImage='paper-image'
+          link='/words'
+        />
+      </div>
     </div>
 	)
 }
