@@ -40,6 +40,15 @@ const AllWordsPage = () => {
     return allWords.filter((word) => selectedFilterOptions.indexOf(word.tags) !== -1);
   }
 
+  function getToggleButtonLabel() {
+    console.log(isScrollView);
+    if(isScrollView) {
+      return 'Сітка';
+    }
+
+    return 'Картки';
+  }
+
   function onFilterChange(selectedFilterOptions) {
     setSelectedFilterOptions(selectedFilterOptions);
     setFilteredWords(getFilteredWords(selectedFilterOptions));
@@ -53,6 +62,7 @@ const AllWordsPage = () => {
     <div className={`${theme} ${isScrollView ? 'scrollbar-hide-inactive' : 'scrollbar-hide-active'} px-16`}>
       <WordsUtilityBar 
         theme={theme} 
+        toggleButtonLabel={getToggleButtonLabel()}
         filterOptions={filterOptions} 
         onFilterChange={onFilterChange} 
         onViewChange={onViewChange} 
