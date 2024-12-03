@@ -63,7 +63,12 @@ const WordsScrollView = ({ words }) => {
   }, [activeCardIndex, words, ukrainianAlphabet]);
 
   const scrollToLetter = (letter) => {
-    const index = words.findIndex((word) => word.primaryWord.startsWith(letter));
+    const currentLetter = words[activeCardIndex].primaryWord[0];
+    if (currentLetter === letter) {
+      return;
+    }
+  
+    const index = findWordByStartLetter(letter);
 
     if (index !== -1 && cardRefs.current[index]) {
       cardRefs.current[index].scrollIntoView({ behavior: 'smooth', inline: "start" });
@@ -82,7 +87,24 @@ const WordsScrollView = ({ words }) => {
       }
     }
   };
+
+  const findWordByStartLetter = (letter) => {
+    return words.findIndex((word) => word.primaryWord.startsWith(letter));
+  }
   
+  const getSideLetterClass = (currentLetter) => {
+    let classes = 'transition-transform duration-300 text-center select-none w-1/3 ';
+  
+    if (words[activeCardIndex]?.primaryWord[0] === currentLetter) {
+      classes += 'text-cherry font-cormorant-infant-bold-italic p-1 border-b border-cherry scale-150 ';
+    } else if (findWordByStartLetter(currentLetter) != -1) {
+      classes += 'scale-100 cursor-pointer';
+    } else {
+      classes += 'scale-100 strikethrough text-center'
+    }
+    
+    return classes;
+  }
 
   return (
     <div
@@ -97,13 +119,11 @@ const WordsScrollView = ({ words }) => {
             <div
               key={letter}
               onClick={() => scrollToLetter(letter)}
-              className={`cursor-pointer transition-transform duration-300 min-w-full text-center ${
-                words[activeCardIndex]?.primaryWord[0] === letter
-                  ? 'text-cherry font-cormorant-infant-bold-italic p-1 border-b border-cherry scale-150' // Highlight and scale
-                  : 'scale-100' // Reset scale for inactive
-              }`}
+              className={`${getSideLetterClass(letter)}`}
             >
-              <p>{letter}</p>
+              <div>
+                {letter}
+              </div>
             </div>
           ))}
         </div>

@@ -132,6 +132,9 @@ export default {
         '.variant-base .custom-scrollbar::-webkit-scrollbar-track': {
           backgroundColor: theme('colors.peach'), 
         },
+        '.strikethrough': {
+          background:'linear-gradient(to right top, transparent 47.75%, currentColor 49.5%, currentColor 50.5%, transparent 52.25%)'
+        },
         
         // SEARCH 
         '.search-input': {
