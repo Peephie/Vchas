@@ -32,16 +32,16 @@ const WordPage = () => {
           </span>
         </div>
         <div className='w-1/2'>
-          <div className='text-peach font-raleway-italic text-2xl mb-2.5'>
+          <div className='text-peach font-raleway-italic text-2xl mb-2.5 lowercase'>
             {word.tags}
           </div>
-          <h1 className='font-cormorant-infant-medium-italic uppercase w-4/5'>
-            {word.primaryWord} &#91; {word.relatedWord} &#93; —
+          <h1 className='font-cormorant-infant-medium uppercase w-4/5'>
+            <span className='font-cormorant-infant-semiBold'>{word.primaryWord}</span> <span className='font-cormorant-infant-medium-italic'>&#91; {word.relatedWord} &#93;</span> —
           </h1>
-          <h2 className='lowercase font-raleway-italic'>
+          <h2 className='lowercase font-raleway-italic font-light'>
             {word.meaning}
           </h2>
-          <hr className='my-10'/> 
+          <hr className='my-10 font-raleway font-normal'/> 
           <h3 className='w-4/5'>
             {word.example}
           </h3>
