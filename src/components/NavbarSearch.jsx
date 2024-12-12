@@ -7,6 +7,9 @@ import anime from 'animejs';
 const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const wordsData = words;
 
+  const resultRefs = useRef([]);
+  const searchInputRef = useRef();
+
   const isBaseTheme = theme === 'variant-base';
   const isInverseTheme = theme === 'variant-inverse';
   const isBeigeToCherryTheme = theme === 'variant-beige-to-cherry';
@@ -21,7 +24,10 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
   const [searchValue, changeSearchValue] = useState('');
   const [filteredWordsData, setFilteredWordsData] = useState([]);
 
-  const resultRefs = useRef([]);
+  useEffect(() => {
+    searchInputRef.current.focus();
+  }, []);
+  
 
   useEffect(() => {
     resultRefs.current = resultRefs.current.slice(0, filteredWordsData.length);
@@ -78,6 +84,7 @@ const NavbarSearch = forwardRef(({ theme, onClose }, ref) => {
           type="text" 
           value={searchValue} 
           onChange={handleChangeSearchValue}
+          ref={searchInputRef}
         />
         <span className=' text-search-word'>ПОШУК</span>
       </div>
